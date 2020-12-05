@@ -1,1 +1,18 @@
-<p>login works!</p>
+<mat-card>
+    <div class="example-container">
+        <p><b>Nazwa użytkownika</b></p>
+        <mat-form-field appearance="fill">
+          <mat-label>Nazwa użytkownika</mat-label>
+          <input matInput placeholder="Nazwa użytkownika" required>
+        </mat-form-field>
+      </div>
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Hasło</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+      </div>      
+</mat-card>
