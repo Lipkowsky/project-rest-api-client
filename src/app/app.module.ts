@@ -13,10 +13,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { ProjektyComponent } from './projekty/projekty.component';
+import {MatTableModule} from '@angular/material/table';
+import { ZadanieComponent } from './zadanie/zadanie.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ProjektyComponent,
+    ZadanieComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
