@@ -6,12 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProjektyService {
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) {}
 
   getAllProjects(): Observable<any> {
-    return this.http.get<any>(this.url+'projekty');
+    
+    return this.http.get<any>(this.url+'projekty/1');
+  
   }
 }
 

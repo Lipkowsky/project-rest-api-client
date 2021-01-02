@@ -12,10 +12,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ProjektyComponent } from './projekty/projekty.component';
 import {MatTableModule} from '@angular/material/table';
 import { ZadanieComponent } from './zadanie/zadanie.component'; 
+import { HttpInterceptorService } from './http-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,13 @@ import { ZadanieComponent } from './zadanie/zadanie.component';
     HttpClientModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

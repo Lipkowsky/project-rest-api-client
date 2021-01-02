@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 
 @Component({
@@ -8,22 +9,32 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  hide = true;
-  username: string = '';
-  password: string = '';
 
-  constructor(private loginService: LoginService) { }
+  username!: string;
+  password!: string;
+  errorMessage = 'Invalid Credentials';
+  successMessage!: string;
+  invalidLogin = false;
+  loginSuccess = false;
+  hide: boolean = true;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {   }
+
+  ngOnInit() {
   }
 
-  login(){
-    const username = this.username;
-    const password = this.password;
-    this.loginService.login(username, password).subscribe(data => {
-      console.log(data);
-    });
-
+  handleLogin() {
+    this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+      this.invalidLogin = false;
+      this.loginSuccess = true;
+      this.successMessage = 'Login Successful.';
+      this.router.navigate(['/projekty']);
+    }, () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+    });      
   }
-
 }
