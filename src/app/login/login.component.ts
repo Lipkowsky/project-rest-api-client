@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   invalidLogin = false;
   loginSuccess = false;
   hide: boolean = true;
+  isLoggedIn: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,10 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService) {   }
 
   ngOnInit() {
+    this.isLoggedIn = this.authenticationService.isUserLoggedIn();
+    if(this.isLoggedIn) {
+      this.router.navigate(['/projekty']);
+    }
   }
 
   handleLogin() {

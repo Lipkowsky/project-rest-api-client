@@ -21,7 +21,7 @@ export class ZadanieComponent implements OnInit {
 
   getZadanie(zadanie_id: number) {
     this.zadanie = this.zadanieService.getZadanie(zadanie_id).subscribe(data => {
-      this.zadanie = data[0];
+      this.zadanie = data;
       console.log(this.zadanie);
     })
   }

@@ -13,8 +13,8 @@ export class ProjektyComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService) {}
 
-  displayedColumns: string[] = ['projektId', 'dataOddania', 'dataOddania', 'nazwa', 'dataczasUtworzenia','opis', 'zadania', 'studenci'];
-  dataSource = [{"projektId":1,"nazwa":"Projekt1","opis":"Opis1","dataczasUtworzenia":"2020-10-10T00:00:00","dataOddania":"2021-10-10","zadania":[],"studenci":[]}];
+  displayedColumns: string[] = ['projektId', 'dataOddania', 'nazwa', 'dataczasUtworzenia','opis', 'zadania', 'studenci', 'szczegoly'];
+  dataSource = this.projektService.getAllProjects();
 
 
   isLoggedIn = false;
@@ -25,11 +25,6 @@ export class ProjektyComponent implements OnInit {
     if(!this.isLoggedIn) {
       this.router.navigate(['/login']);
     }
-    this.projektService.getAllProjects().subscribe(project => {
-      
-      this.dataSource.push(project);
-      
-    })
   }
 
 

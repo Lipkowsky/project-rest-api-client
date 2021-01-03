@@ -17,12 +17,14 @@ import { ProjektyComponent } from './projekty/projekty.component';
 import {MatTableModule} from '@angular/material/table';
 import { ZadanieComponent } from './zadanie/zadanie.component'; 
 import { HttpInterceptorService } from './http-interceptor.service';
+import { ProjektComponent } from './projekt/projekt.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProjektyComponent,
     ZadanieComponent,
+    ProjektComponent,
   ],
   imports: [
     BrowserModule,

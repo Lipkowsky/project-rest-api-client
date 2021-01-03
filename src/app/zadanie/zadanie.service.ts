@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ZadanieService {
 
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) {}
 
   getZadanie(zadanie_id : number) {
-    return this.http.get<any>(this.url+'zadania/?zadanie_id='+zadanie_id);
+    return this.http.get<any>(this.url+'zadanie/'+zadanie_id);
   }
 }

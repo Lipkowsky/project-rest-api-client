@@ -1,0 +1,27 @@
+<mat-card *ngIf="projekt">
+    <h1>Informacje o projekcie</h1>
+    <p>Nazwa: {{projekt.nazwa}}</p>
+    <p>Opis: {{projekt.opis}}</p>
+    <p>Data i czas utworzenia: {{projekt.dataczasUtworzenia | date}}</p>
+    <p>Data oddania: {{projekt.dataOddania | date}}</p>
+    <h3>Lista zadań</h3>
+    <ul class="zadania">
+        <li *ngFor="let zadanie of projekt.zadania">
+          <span class="zadanie">{{zadanie.nazwa}} </span>
+          <span class="zadanie">{{zadanie.kolejnosc}} </span>  
+          <span class="zadanie">{{zadanie.opis}} </span> 
+          <span class="zadanie">{{zadanie.dataczasOddania | date}} </span> 
+        </li>
+      </ul>
+      <h3>Lista studentów</h3>
+      <ul class="studenci">
+        <li *ngFor="let student of projekt.studenci">
+          <span class="student">{{student.imie}} </span>
+          <span class="student">{{student.nazwisko}} </span>  
+          <span class="student">{{student.nrIndeksu}} </span> 
+          <span class="student">{{student.email}} </span> 
+          <span class="student">Stacjonany :  {{student.stacjonarny ? 'tak' : 'nie'}} </span> 
+        </li>
+      </ul>
+      <button (click)="dodajZadanieDoProjektu('nowe zadanie3', 'opis', 3, '2021-01-04', 1)" mat-raised-button>Dodaj nowe zadanie do projektu</button>
+</mat-card>

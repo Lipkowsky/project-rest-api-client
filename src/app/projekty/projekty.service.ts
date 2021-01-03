@@ -12,7 +12,7 @@ export class ProjektyService {
 
   getAllProjects(): Observable<any> {
     
-    return this.http.get<any>(this.url+'projekty/1');
+    return this.http.get<any>(this.url+'projekty');
   
   }
 }
