@@ -1,8 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Lato-Regular, "Helvetica Neue", sans-serif;}
+
 .example-spacer {
     flex: 1 1 auto;
   }
-  
+
+.mat-card{
+  box-shadow: 0;
+}
+.mat-toolbar{
+  background: #0f69af;
+  background-image: url("assets/TuPlay.png");
+  background-repeat:no-repeat;
+  background-position-y:center;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+h1{
+  color: #0f69af;
+}
+.mat-icon{
+  color: white;
+}
+.logoText{
+  color: #ffffff;
+  font-size: 22px;
+  text-shadow: 2px 2px 4px #000000;
+}
+

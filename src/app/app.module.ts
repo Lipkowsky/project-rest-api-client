@@ -18,6 +18,7 @@ import {MatTableModule} from '@angular/material/table';
 import { ZadanieComponent } from './zadanie/zadanie.component'; 
 import { HttpInterceptorService } from './http-interceptor.service';
 import { ProjektComponent } from './projekt/projekt.component';
+import { StudentComponent } from './student/student.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ProjektComponent } from './projekt/projekt.component';
     ProjektyComponent,
     ZadanieComponent,
     ProjektComponent,
+    StudentComponent,
   ],
   imports: [
     BrowserModule,
