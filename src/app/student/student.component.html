@@ -8,8 +8,10 @@
   <h3>Projekty powiązane ze studentem</h3>
   <ul class="projektyStudenta">
     <li *ngFor="let student of student.projekty">
-      <span class="projekt">{{student.projektId}} </span>
-      <span class="projekt">{{student.nazwa}} </span>
+      <a href="projekt/{{ student.projektId }}">
+        <span class="projekt">({{student.projektId}})  </span>
+        <span class="projekt"> {{student.nazwa}} </span>
+      </a>
     </li>
   </ul>
 
