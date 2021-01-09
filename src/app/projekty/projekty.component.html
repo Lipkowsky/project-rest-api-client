@@ -22,17 +22,27 @@
       <td mat-cell *matCellDef="let element">{{ element.opis }}</td>
     </ng-container>
 
+    
+
     <ng-container matColumnDef="zadania">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Zadania</th>
       <td mat-cell *matCellDef="let row">
-        <ul style="padding: 0;" *ngFor="let loc of row.zadania">
-          <li>
-            <a href="zadanie/{{ loc.zadanieId }}">
-              {{ loc.nazwa }}
-            </a>
-          </li>
-        </ul>
-      </td>
+        <mat-form-field appearance="fill">
+          <mat-label>Select an option</mat-label>
+          <mat-select  [(value)]="selected">
+            <mat-option *ngFor="let loc of row.zadania" value="{{loc.zadanieId}}">{{ loc.nazwa }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </ng-container>
+
+    <ng-container matColumnDef="dozadania">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="doZadania()"
+          mat-raised-button
+          color="primary"
+          >Do zadania</button
+        >
     </ng-container>
 
     <ng-container matColumnDef="studenci">

@@ -11,26 +11,34 @@ import { ProjektyService } from './projekty.service';
 export class ProjektyComponent implements OnInit {
   constructor(private projektService: ProjektyService, private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {}
+    private authenticationService: AuthenticationService) { }
 
-  displayedColumns: string[] = ['projektId', 'dataOddania', 'nazwa', 'dataczasUtworzenia','opis', 'zadania', 'studenci', 'szczegoly'];
+  displayedColumns: string[] = ['projektId', 'dataOddania', 'nazwa', 'dataczasUtworzenia', 'opis', 'zadania', 'dozadania', 'studenci', 'szczegoly'];
   dataSource = this.projektService.getAllProjects();
 
 
   isLoggedIn = false;
-  
+  selected!: any;
+
+
+
 
   ngOnInit(): void {
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    if(!this.isLoggedIn) {
+    if (!this.isLoggedIn) {
       this.router.navigate(['/login']);
     }
+  }
+
+  doZadania(){
+    console.log('selected:'+this.selected);
+    this.router.navigate(['/zadanie/'+this.selected]);
   }
 
 
   handleLogout() {
     this.authenticationService.logout();
   }
-  
+
 }
 

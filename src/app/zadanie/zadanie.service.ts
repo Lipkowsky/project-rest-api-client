@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ZadanieService {
 
-  url = 'http://localhost:8080/api/';
+  url = 'https://localhost:8443/api/';
 
   constructor(private http: HttpClient) {}
 

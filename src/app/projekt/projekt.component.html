@@ -1,27 +1,77 @@
 <mat-card *ngIf="projekt">
-    <h1>Informacje o projekcie</h1>
-    <p>Nazwa: {{projekt.nazwa}}</p>
-    <p>Opis: {{projekt.opis}}</p>
-    <p>Data i czas utworzenia: {{projekt.dataczasUtworzenia | date}}</p>
-    <p>Data oddania: {{projekt.dataOddania | date}}</p>
-    <h3>Lista zadań</h3>
-    <ul class="zadania">
-        <li *ngFor="let zadanie of projekt.zadania">
-          <span class="zadanie">{{zadanie.nazwa}}; </span>
-          <span class="zadanie">{{zadanie.kolejnosc}}; </span>
-          <span class="zadanie">{{zadanie.opis}}; </span>
-          <span class="zadanie">{{zadanie.dataczasOddania | date}} </span>
-        </li>
-      </ul>
-      <h3>Lista studentów</h3>
-      <ul class="studenci">
-        <li *ngFor="let student of projekt.studenci">
-          <span class="student">{{student.imie}} </span>
-          <span class="student">{{student.nazwisko}} </span>
-          <span class="student">{{student.nrIndeksu}} </span>
-          <span class="student">{{student.email}} </span>
-          <span class="student">Stacjonany :  {{student.stacjonarny ? 'tak' : 'nie'}} </span>
-        </li>
-      </ul>
-      <button (click)="dodajZadanieDoProjektu('nowe zadanie3', 'opis', 3, '2021-01-04', 1)" mat-raised-button>Dodaj nowe zadanie do projektu</button>
+  <h1>Informacje o projekcie</h1>
+  <p>Nazwa: {{ projekt.nazwa }}</p>
+  <p>Opis: {{ projekt.opis }}</p>
+  <p>Data i czas utworzenia: {{ projekt.dataczasUtworzenia | date }}</p>
+  <p>Data oddania: {{ projekt.dataOddania | date }}</p>
+  <h3>Lista zadań</h3>
+  <ul class="zadania">
+    <li *ngFor="let zadanie of projekt.zadania">
+      <span class="zadanie">{{ zadanie.nazwa }} </span>
+      <span class="zadanie">{{ zadanie.kolejnosc }} </span>
+      <span class="zadanie">{{ zadanie.opis }} </span>
+      <span class="zadanie">{{ zadanie.dataczasOddania | date }} </span>
+    </li>
+  </ul>
+  <h3>Lista studentów</h3>
+  <ul class="studenci">
+    <li *ngFor="let student of projekt.studenci">
+      <span class="student">{{ student.imie }} </span>
+      <span class="student">{{ student.nazwisko }} </span>
+      <span class="student">{{ student.nrIndeksu }} </span>
+      <span class="student">{{ student.email }} </span>
+      <span class="student"
+        >Stacjonany : {{ student.stacjonarny ? "tak" : "nie" }}
+      </span>
+    </li>
+  </ul>
+  <div class="example-container">
+    <p><b>Nazwa zadania</b></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwa zadania</mat-label>
+      <input
+        matInput
+        placeholder="Nazwa zadania"
+        [(ngModel)]="nazwa"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <p><b>Kolejność zadania</b></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Kolejność zadania</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="Kolejność zadania"
+        [(ngModel)]="kolejnosc"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <p><b>Opis zadania</b></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Opis zadania</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+        [(ngModel)]="opis"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
+  </mat-form-field>
+  <button (click)="dodajZadanieDoProjektu()" mat-raised-button>
+    Dodaj nowe zadanie do projektu
+  </button>
 </mat-card>

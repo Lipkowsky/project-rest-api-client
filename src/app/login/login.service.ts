@@ -11,6 +11,6 @@ export class LoginService {
 
   login (username: string, password: string) {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.http.get('http://localhost:8080/api/login', {headers});
+    return this.http.get('http://localhost:8443/api/login', {headers});
   }
 }

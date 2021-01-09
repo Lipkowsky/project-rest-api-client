@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProjektService {
 
-  url = 'http://localhost:8080/api/';
+  url = 'https://localhost:8443/api/';
 
   constructor(private http: HttpClient) { }
 

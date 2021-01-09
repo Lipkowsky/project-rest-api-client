@@ -9,9 +9,12 @@ import { ZadanieService } from './zadanie.service';
 })
 export class ZadanieComponent implements OnInit {
 
+  zadanie: any;
+
+
   constructor(public zadanieService : ZadanieService, private route: ActivatedRoute) { }
 
-  zadanie: any;
+  
 
   ngOnInit(): void{
     this.route.params.subscribe(data => {

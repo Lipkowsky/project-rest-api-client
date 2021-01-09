@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 import { ProjektService } from './projekt.service';
 
 @Component({
@@ -10,6 +11,10 @@ import { ProjektService } from './projekt.service';
 export class ProjektComponent implements OnInit {
 
   projekt: any;
+  nazwa!: string;
+  kolejnosc!: number;
+  opis!: string;
+  data: any;
 
   constructor(public projektService : ProjektService, private route: ActivatedRoute) {}
 
@@ -26,10 +31,13 @@ export class ProjektComponent implements OnInit {
     })
   }
 
-  dodajZadanieDoProjektu(nazwaZadania: string, opisZadania: string, kolejnoscZadania : number, oddanieZadania : string, idProjektu : number) {
-    this.projektService.dodajZadanieDoProjektu(nazwaZadania, opisZadania, kolejnoscZadania, oddanieZadania, idProjektu).subscribe(data => {
-      console.log(data);
+  dodajZadanieDoProjektu() {
+    const momentDate = new Date(this.data);
+    const formattedDate = moment(momentDate).format("YYYY-MM-DD");
+    this.projektService.dodajZadanieDoProjektu(this.nazwa, this.opis, this.kolejnosc, formattedDate, this.projekt.projektId).subscribe(data => {
+      console.log('data');
       console.log('Dodano zadanie do projektu')
+      this.ngOnInit();
     })
   }
 
