@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
+import { AuthenticationService } from '../authentication.service';
 import { ProjektService } from './projekt.service';
 
 @Component({
@@ -15,13 +16,25 @@ export class ProjektComponent implements OnInit {
   kolejnosc!: number;
   opis!: string;
   data: any;
+  role!: any;
+  isLoggedIn!: boolean;
 
-  constructor(public projektService : ProjektService, private route: ActivatedRoute) {}
+  constructor(public projektService : ProjektService, private router: Router, private authenticationService: AuthenticationService, private route: ActivatedRoute) {}
 
   ngOnInit(): void{
+
+    this.isLoggedIn = this.authenticationService.isUserLoggedIn();
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    } else {
+      this.role = this.authenticationService.getRole();
+      console.log(this.role);
+    }
+
     this.route.params.subscribe(data => {
       this.getProjekt(data.projekt_id);
     })
+    
   }
 
   getProjekt(projekt_id: number) {

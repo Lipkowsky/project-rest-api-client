@@ -17,6 +17,18 @@ export class AuthenticationService {
 
   }
 
+
+  getRole(){
+    const role = sessionStorage.getItem('myrole');
+    return role;
+  }
+
+  setRole(){
+    return this.http.get(`https://localhost:8443/api/myrole`, {responseType: 'text'}).subscribe(res => {
+      sessionStorage.setItem('myrole', res)
+    })
+  }
+
   authenticationService(username: String, password: String) {
     return this.http.get(`https://localhost:8443/api/login`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
@@ -33,6 +45,8 @@ export class AuthenticationService {
   registerSuccessfulLogin(username : string, password: string) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
     sessionStorage.setItem('token',this.createBasicAuthToken(username, password))
+    console.log('sucess');
+    this.setRole();
   }
 
   logout() {
@@ -50,6 +64,8 @@ export class AuthenticationService {
   getLoggedInUserName() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return ''
-    return user
+    if(user) return user;
+    
+
   }
 }

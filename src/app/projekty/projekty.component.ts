@@ -19,6 +19,7 @@ export class ProjektyComponent implements OnInit {
 
   isLoggedIn = false;
   selected!: any;
+  role!:any;
 
 
 
@@ -27,6 +28,9 @@ export class ProjektyComponent implements OnInit {
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);
+    } else {
+      this.role = this.authenticationService.getRole();
+      console.log(this.role);
     }
   }
 

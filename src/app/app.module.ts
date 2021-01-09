@@ -19,6 +19,10 @@ import { ZadanieComponent } from './zadanie/zadanie.component';
 import { HttpInterceptorService } from './http-interceptor.service';
 import { ProjektComponent } from './projekt/projekt.component';
 import { StudentComponent } from './student/student.component';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,14 +44,19 @@ import { StudentComponent } from './student/student.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    TextFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule, 
+    MatSelectModule
   ],
   providers: [
+    MatDatepickerModule, 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })
