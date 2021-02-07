@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { ZadanieService } from './zadanie.service';
 
 @Component({
@@ -12,9 +12,9 @@ export class ZadanieComponent implements OnInit {
   zadanie: any;
 
 
-  constructor(public zadanieService : ZadanieService, private route: ActivatedRoute) { }
+  constructor(public zadanieService : ZadanieService, private route: ActivatedRoute, private router: Router) { }
 
-  
+
 
   ngOnInit(): void{
     this.route.params.subscribe(data => {
@@ -29,5 +29,11 @@ export class ZadanieComponent implements OnInit {
     })
   }
 
+  usunZadanie() {
+    this.zadanie = this.zadanieService.deleteZadanie(this.zadanie.zadanieId).subscribe(data => {
+      console.log('Usunięto zadanie');
+    });
+    this.router.navigate(['/projekty']);
+  }
 
 }

@@ -15,4 +15,8 @@ export class ZadanieService {
   getZadanie(zadanie_id : number) {
     return this.http.get<any>(this.url+'zadanie/'+zadanie_id);
   }
+
+  deleteZadanie(zadanie_id : number){
+    return this.http.delete(this.url + 'usunzadanie/' + zadanie_id);
+  }
 }

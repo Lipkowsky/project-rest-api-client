@@ -1,9 +1,12 @@
 <mat-card *ngIf="zadanie">
-    <h1>Lista zadań do wykonania w projekcie</h1>
-    <p>Nazwa: {{zadanie.nazwa}}</p>
-    <p>Opis: {{zadanie.opis}}</p>
-    <p>Kolejnosc: {{zadanie.kolejnosc}}</p>
-    <p>Data oddania: {{zadanie.dataczasOddania | date}}</p>
+  <h1>Lista zadań do wykonania w projekcie</h1>
+  <p>Nazwa: {{zadanie.nazwa}}</p>
+  <p>Opis: {{zadanie.opis}}</p>
+  <p>Kolejnosc: {{zadanie.kolejnosc}}</p>
+  <p>Data oddania: {{zadanie.dataczasOddania | date}}</p>
+  <button (click)="usunZadanie()" mat-raised-button>
+    Usuń zadanie
+  </button>
 </mat-card>
 
 
