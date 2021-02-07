@@ -64,8 +64,8 @@ export class AuthenticationService {
   getLoggedInUserName() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return ''
-    else return user;
-    
+    if(user) return user;
+
 
   }
 }
