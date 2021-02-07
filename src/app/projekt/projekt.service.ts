@@ -25,4 +25,13 @@ export class ProjektService {
   usunProjekt(idProjektu: number) {
     return this.http.delete(this.url + 'usunProjekt/' + idProjektu);
   }
+
+  getStudentci() {
+    return this.http.get<any>(this.url + 'studenci/');
+  }
+
+  studentDoProjektu(student_id: number, projekt_id: number) {
+    let options = {};
+    return this.http.post<any>(this.url + 'stud-do-proj/' + student_id + '/' + projekt_id, {options});
+  }
 }

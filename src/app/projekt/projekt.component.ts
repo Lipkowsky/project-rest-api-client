@@ -18,6 +18,9 @@ export class ProjektComponent implements OnInit {
   data: any;
   role!: any;
   isLoggedIn!: boolean;
+  studenci: any;
+  selected!: any;
+  dodany: any;
 
   constructor(public projektService: ProjektService, private router: Router, private authenticationService: AuthenticationService, private route: ActivatedRoute) {
   }
@@ -34,6 +37,7 @@ export class ProjektComponent implements OnInit {
 
     this.route.params.subscribe(data => {
       this.getProjekt(data.projekt_id);
+      this.getStudenci();
     });
 
   }
@@ -60,6 +64,20 @@ export class ProjektComponent implements OnInit {
       console.log('Usunięto projekt');
     });
     this.router.navigate(['/projekty']);
+  }
+
+  getStudenci() {
+    this.studenci = this.projektService.getStudentci().subscribe(data => {
+      this.studenci = data;
+      console.log(this.studenci);
+    });
+  }
+
+  dodajStudenta() {
+    this.dodany = this.projektService.studentDoProjektu(this.selected, this.projekt.projektId).subscribe(data => {
+      console.log('Dodano studenta');
+    });
+    this.router.navigate(['/projekty/']);
   }
 
 }
