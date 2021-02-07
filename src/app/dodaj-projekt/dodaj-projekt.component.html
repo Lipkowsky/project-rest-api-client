@@ -1,6 +1,7 @@
+<mat-card>
 <h1>Dodawanie projektu</h1>
 <div class="example-container">
-  <p><b>Nazwa projektu</b></p>
+  <p>Nazwa projektu</p>
   <mat-form-field appearance="fill">
     <mat-label>Nazwa projektu</mat-label>
     <input
@@ -12,7 +13,7 @@
   </mat-form-field>
 </div>
 <div class="example-container">
-  <p><b>Opis projektu</b></p>
+  <p>Opis projektu</p>
   <mat-form-field appearance="fill">
     <mat-label>Opis projektu</mat-label>
     <textarea
@@ -25,9 +26,9 @@
     ></textarea>
   </mat-form-field>
 </div>
-
+<p>Wskaż datę zakończenia</p>
 <mat-form-field appearance="fill">
-  <mat-label>Choose a date</mat-label>
+  <mat-label>Wybierz date</mat-label>
   <input matInput [matDatepicker]="picker" [(ngModel)]="data"/>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
@@ -35,3 +36,4 @@
 <button (click)="dodajProjekt()" mat-raised-button>
   Dodaj nowy projekt
 </button>
+</mat-card>

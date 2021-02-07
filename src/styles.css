@@ -1,15 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Lato-Regular, "Helvetica Neue", sans-serif;}
+body { margin: 0; font-family: Lato-Regular, "Helvetica Neue", sans-serif; color: #f5f5f5}
 
 .example-spacer {
     flex: 1 1 auto;
   }
 
 .mat-card{
-  box-shadow: 0;
+  border: #1f2f47 0px solid;
+box-shadow: 0px 0px !important;
 }
+
 .mat-toolbar{
   background: #0f69af;
   background-image: url("assets/TuPlay.png");
@@ -29,5 +31,48 @@ h1{
   color: #ffffff;
   font-size: 22px;
   text-shadow: 2px 2px 4px #000000;
+}
+
+#left50{
+  width: 50%;
+  float: left;
+}
+#right50{
+  width: 50%;
+  float: left;
+}
+
+
+
+.myButton {
+  box-shadow:inset 0px 0px 15px 3px #23395e;
+  background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+  background-color:#2e466e;
+  border-radius:17px;
+  border:1px solid #1f2f47;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  padding:7px 19px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+  text-decoration: none;
+  margin-left: 6px;
+}
+.myButton:hover {
+  background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+  background-color:#415989;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+  text-decoration: underline;
+}
+
+.myButton2{
+  color: white;
+  text-decoration: none;
 }
 

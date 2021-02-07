@@ -5,25 +5,43 @@
 
   <span class="logoText">Aplikacja do zarządzania projektami</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <a routerLink="/login"><mat-icon>account_box</mat-icon></a>
+  <button class="myButton">
+    <a  class="myButton2" routerLink="/dodajProjekt">Dodaj projekt</a>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <a routerLink="/projekty"><mat-icon>assignment_returned</mat-icon></a>
+  <button class="myButton">
+    <a  class="myButton2" routerLink="/projekty">Lista projektów</a>
+  </button>
+  <button class="myButton">
+    <a  class="myButton2" routerLink="/login">Logowanie</a>
   </button>
 
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <a routerLink="/projekty"><mat-icon>group_work</mat-icon></a>
-  </button>
 
-</mat-toolbar>
+  <!--
+    <button mat-flat-button class="example-icon" aria-label="Example icon-button with share icon">
+      <a routerLink="/login">uu</a>
+    </button>
 
 
-<div class="content" role="main">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <a routerLink="/login"><mat-icon>account_box</mat-icon></a>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <a routerLink="/projekty"><mat-icon>assignment_returned</mat-icon></a>
+    </button>
 
-  <router-outlet></router-outlet>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <a routerLink="/projekty"><mat-icon>group_work</mat-icon></a>
+    </button>
+  -->
 
-</div>
+  </mat-toolbar>
+
+
+  <div class="content" role="main">
+
+    <router-outlet></router-outlet>
+
+  </div>
 
 
 
