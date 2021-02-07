@@ -48,16 +48,10 @@
     <ng-container matColumnDef="studenci">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Studenci</th>
       <td mat-cell *matCellDef="let row">
-        <div *ngIf="role==='ROLE_ADMIN'">
           <span *ngFor="let loc of row.studenci">
           <a href="student/{{ loc.studentId }}">
             {{ loc.imie }} {{ loc.nazwisko }}
           </a><br></span>
-        </div>
-        <div *ngIf="role==='ROLE_USER'">
-          <span *ngFor="let loc of row.studenci">
-            {{ loc.imie }} {{ loc.nazwisko }}<br></span>
-        </div>
       </td>
     </ng-container>
 
