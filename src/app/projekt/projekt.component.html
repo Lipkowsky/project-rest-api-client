@@ -24,6 +24,9 @@
         <span class="student"
         >Stacjonany : {{ student.stacjonarny ? "tak" : "nie" }}
       </span>
+        <span *ngIf="role==='ROLE_ADMIN'" class="student"><button (click)="usunZProjektu(student.studentId)" mat-raised-button>
+      Usuń z projektu
+    </button></span>
       </li>
     </ul>
   </div>
@@ -86,15 +89,18 @@
       Usuń projekt
     </button>
   </div>
-  <div class="example-container">
-      <mat-form-field appearance="fill">
-        <mat-label>Wybierz studenta z listy</mat-label>
-        <mat-select  [(value)]="selected">
-          <mat-option *ngFor="let loc of studenci" value="{{loc.studentId}}">{{ loc.nazwisko }} {{ loc.imie }} </mat-option>
-        </mat-select>
-      </mat-form-field>
+  <div class="example-container" *ngIf="role==='ROLE_ADMIN'">
+    <mat-form-field appearance="fill">
+      <mat-label>Wybierz studenta z listy</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option *ngFor="let loc of studenci"
+                    value="{{loc.studentId}}">{{ loc.nazwisko }} {{ loc.imie }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button (click)="dodajStudenta()" mat-raised-button>
+      Dodaj studenta do projektu
+    </button>
   </div>
-  <button (click)="dodajStudenta()" mat-raised-button>
-    Dodaj studenta do projektu
-  </button>
+
 </mat-card>

@@ -34,4 +34,8 @@ export class ProjektService {
     let options = {};
     return this.http.post<any>(this.url + 'stud-do-proj/' + student_id + '/' + projekt_id, {options});
   }
+
+  usuniecieStudentaZProjektu(student_id: number, projekt_id: number) {
+    return this.http.delete(this.url + 'usunZProjektu/' + projekt_id + '/' + student_id);
+  }
 }

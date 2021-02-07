@@ -74,10 +74,16 @@ export class ProjektComponent implements OnInit {
   }
 
   dodajStudenta() {
-    this.dodany = this.projektService.studentDoProjektu(this.selected, this.projekt.projektId).subscribe(data => {
+    this.projektService.studentDoProjektu(this.selected, this.projekt.projektId).subscribe(data => {
       console.log('Dodano studenta');
     });
     this.router.navigate(['/projekty/']);
   }
 
+  usunZProjektu(studentId: number) {
+    this.projektService.usuniecieStudentaZProjektu(studentId, this.projekt.projektId).subscribe(data => {
+      console.log('Usunięto projekt');
+    });
+    this.router.navigate(['/projekty']);
+  }
 }
