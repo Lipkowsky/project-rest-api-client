@@ -23,6 +23,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { DodajProjektComponent } from './dodaj-projekt/dodaj-projekt.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ZadanieComponent,
     ProjektComponent,
     StudentComponent,
+    DodajProjektComponent,
   ],
   imports: [
     BrowserModule,
