@@ -1,18 +1,16 @@
-
-
 <!-- Toolbar -->
 <mat-toolbar>
 
   <span class="logoText">Aplikacja do zarządzania projektami</span>
   <span class="example-spacer"></span>
-  <button class="myButton">
-    <a  class="myButton2" routerLink="/dodajProjekt">Dodaj projekt</a>
+  <button class="myButton" *ngIf="role==='ROLE_ADMIN'">
+    <a class="myButton2" routerLink="/dodajProjekt" >Dodaj projekt</a>
   </button>
   <button class="myButton">
-    <a  class="myButton2" routerLink="/projekty">Lista projektów</a>
+    <a class="myButton2" routerLink="/projekty">Lista projektów</a>
   </button>
   <button class="myButton">
-    <a  class="myButton2" routerLink="/login">Logowanie</a>
+    <a class="myButton2" routerLink="/login">Logowanie</a>
   </button>
 
 
@@ -34,14 +32,14 @@
     </button>
   -->
 
-  </mat-toolbar>
+</mat-toolbar>
 
 
-  <div class="content" role="main">
+<div class="content" role="main">
 
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-  </div>
+</div>
 
 
 
