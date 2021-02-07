@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
-import { ProjektyService } from './projekty.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../authentication.service';
+import {ProjektyService} from './projekty.service';
 
 @Component({
   selector: 'app-projekty',
@@ -10,18 +10,17 @@ import { ProjektyService } from './projekty.service';
 })
 export class ProjektyComponent implements OnInit {
   constructor(private projektService: ProjektyService, private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService) { }
-
-  displayedColumns: string[] = ['projektId', 'dataOddania', 'nazwa', 'dataczasUtworzenia', 'opis', 'zadania', 'dozadania', 'studenci', 'szczegoly'];
-  dataSource = this.projektService.getAllProjects();
-
+              private router: Router,
+              private authenticationService: AuthenticationService) {
+  }
 
   isLoggedIn = false;
   selected!: any;
-  role!:any;
+  role!: any;
+  idS!: any;
 
-
+  displayedColumns: string[] = ['projektId', 'dataOddania', 'nazwa', 'dataczasUtworzenia', 'opis', 'zadania', 'dozadania', 'studenci', 'szczegoly'];
+  dataSource = this.projektService.getAllProjects();
 
 
   ngOnInit(): void {
@@ -34,9 +33,9 @@ export class ProjektyComponent implements OnInit {
     }
   }
 
-  doZadania(){
-    console.log('selected:'+this.selected);
-    this.router.navigate(['/zadanie/'+this.selected]);
+  doZadania() {
+    console.log('selected:' + this.selected);
+    this.router.navigate(['/zadanie/' + this.selected]);
   }
 
 
