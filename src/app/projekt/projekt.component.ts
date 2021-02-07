@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
-import { AuthenticationService } from '../authentication.service';
-import { ProjektService } from './projekt.service';
+import {AuthenticationService} from '../authentication.service';
+import {ProjektService} from './projekt.service';
 
 @Component({
   selector: 'app-projekt',
@@ -19,9 +19,10 @@ export class ProjektComponent implements OnInit {
   role!: any;
   isLoggedIn!: boolean;
 
-  constructor(public projektService : ProjektService, private router: Router, private authenticationService: AuthenticationService, private route: ActivatedRoute) {}
+  constructor(public projektService: ProjektService, private router: Router, private authenticationService: AuthenticationService, private route: ActivatedRoute) {
+  }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
 
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
     if (!this.isLoggedIn) {
@@ -33,25 +34,32 @@ export class ProjektComponent implements OnInit {
 
     this.route.params.subscribe(data => {
       this.getProjekt(data.projekt_id);
-    })
-    
+    });
+
   }
 
   getProjekt(projekt_id: number) {
     this.projekt = this.projektService.getProjekt(projekt_id).subscribe(data => {
       this.projekt = data;
       console.log(this.projekt);
-    })
+    });
   }
 
   dodajZadanieDoProjektu() {
     const momentDate = new Date(this.data);
-    const formattedDate = moment(momentDate).format("YYYY-MM-DD");
+    const formattedDate = moment(momentDate).format('YYYY-MM-DD');
     this.projektService.dodajZadanieDoProjektu(this.nazwa, this.opis, this.kolejnosc, formattedDate, this.projekt.projektId).subscribe(data => {
       console.log('data');
-      console.log('Dodano zadanie do projektu')
+      console.log('Dodano zadanie do projektu');
       this.ngOnInit();
-    })
+    });
+  }
+
+  usunProjekt() {
+    this.projekt = this.projektService.usunProjekt(this.projekt.projektId).subscribe(data => {
+      console.log('Usunięto projekt');
+    });
+    this.router.navigate(['/projekty']);
   }
 
 }

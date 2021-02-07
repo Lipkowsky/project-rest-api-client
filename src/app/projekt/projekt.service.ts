@@ -1,5 +1,5 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,8 @@ export class ProjektService {
 
   url = 'https://localhost:8443/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getProjekt(projekt_id: number) {
     return this.http.get<any>(this.url + 'projekty/' + projekt_id);
@@ -16,8 +17,12 @@ export class ProjektService {
 
   dodajZadanieDoProjektu(nazwaZadania: string, opisZadania: string, kolejnoscZadania: number, oddanieZadania: string, idProjektu: number) {
 
-    let options = {}
+    let options = {};
 
-    return this.http.post<any>(this.url + 'addzadanie?nazwa=' + nazwaZadania + '&opis=' + opisZadania + '&kolejnosc=' + kolejnoscZadania + '&oddanie=' + oddanieZadania + '&idProjektu=' + idProjektu, { options });
+    return this.http.post<any>(this.url + 'addzadanie?nazwa=' + nazwaZadania + '&opis=' + opisZadania + '&kolejnosc=' + kolejnoscZadania + '&oddanie=' + oddanieZadania + '&idProjektu=' + idProjektu, {options});
+  }
+
+  usunProjekt(idProjektu: number) {
+    return this.http.delete(this.url + 'usunProjekt/' + idProjektu);
   }
 }
