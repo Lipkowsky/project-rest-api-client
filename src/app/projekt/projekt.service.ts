@@ -38,4 +38,8 @@ export class ProjektService {
   usuniecieStudentaZProjektu(student_id: number, projekt_id: number) {
     return this.http.delete(this.url + 'usunZProjektu/' + projekt_id + '/' + student_id);
   }
+
+  pobierzPliki(projekt_id: number) {
+    return this.http.get<any>('https://localhost:8443/files?projekt_id=' + projekt_id);
+  }
 }

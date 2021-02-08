@@ -102,5 +102,13 @@
       Dodaj studenta do projektu
     </button>
   </div>
+  <div class="example-container">
+    <h1>Pliki:</h1>
+    <ul class="pliki">
+      <li *ngFor="let plik of pliki">
+        <span class="student"><a href="{{ plik.url }}">{{plik.name}}</a> </span>
+      </li>
+    </ul>
+  </div>
 
 </mat-card>

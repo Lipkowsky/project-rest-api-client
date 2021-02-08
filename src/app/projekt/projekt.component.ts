@@ -21,6 +21,7 @@ export class ProjektComponent implements OnInit {
   studenci: any;
   selected!: any;
   dodany: any;
+  pliki: any;
 
   constructor(public projektService: ProjektService, private router: Router, private authenticationService: AuthenticationService, private route: ActivatedRoute) {
   }
@@ -38,6 +39,7 @@ export class ProjektComponent implements OnInit {
     this.route.params.subscribe(data => {
       this.getProjekt(data.projekt_id);
       this.getStudenci();
+      this.pobierzPliki(data.projekt_id);
     });
 
   }
@@ -85,5 +87,12 @@ export class ProjektComponent implements OnInit {
       console.log('Usunięto projekt');
     });
     this.router.navigate(['/projekty']);
+  }
+
+  pobierzPliki(projekt_id: number) {
+    this.pliki = this.projektService.pobierzPliki(projekt_id).subscribe(data => {
+      this.pliki = data;
+      console.log("Pliki projektu:",this.pliki);
+    });
   }
 }
