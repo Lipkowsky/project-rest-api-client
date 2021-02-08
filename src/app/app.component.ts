@@ -24,4 +24,9 @@ export class AppComponent implements OnInit {
       console.log(this.role);
     }
   }
+
+  logout(): void {
+    this.authenticationService.logout();
+    this.isLoggedIn = false;
+  }
 }

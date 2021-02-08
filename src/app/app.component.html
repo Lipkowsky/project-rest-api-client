@@ -13,24 +13,10 @@
     <a class="myButton2" routerLink="/login">Logowanie</a>
   </button>
 
+  <button *ngIf="isLoggedIn" class="myButton">
+    <a class="myButton2"  (click)="logout()" routerLink="/login">Wyloguj</a>
+  </button>
 
-  <!--
-    <button mat-flat-button class="example-icon" aria-label="Example icon-button with share icon">
-      <a routerLink="/login">uu</a>
-    </button>
-
-
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <a routerLink="/login"><mat-icon>account_box</mat-icon></a>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <a routerLink="/projekty"><mat-icon>assignment_returned</mat-icon></a>
-    </button>
-
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <a routerLink="/projekty"><mat-icon>group_work</mat-icon></a>
-    </button>
-  -->
 
 </mat-toolbar>
 

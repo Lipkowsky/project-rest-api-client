@@ -27,9 +27,9 @@ export class ProjektComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
     if (!this.isLoggedIn) {
+   
       this.router.navigate(['/login']);
     } else {
       this.role = this.authenticationService.getRole();
@@ -45,6 +45,8 @@ export class ProjektComponent implements OnInit {
   }
 
   getProjekt(projekt_id: number) {
+
+
     this.projekt = this.projektService.getProjekt(projekt_id).subscribe(data => {
       this.projekt = data;
       console.log(this.projekt);

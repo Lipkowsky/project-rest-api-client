@@ -63,6 +63,7 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('myrole');
     this.username = '';
     this.password = '';
   }
