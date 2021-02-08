@@ -29,8 +29,21 @@
     </button></span>
       </li>
     </ul>
+    <div class="example-container" *ngIf="role==='ROLE_ADMIN'">
+      <mat-form-field appearance="fill">
+        <mat-label>Wybierz studenta z listy</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option *ngFor="let loc of studenci"
+                      value="{{loc.studentId}}">{{ loc.nazwisko }} {{ loc.imie }} </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button (click)="dodajStudenta()" mat-raised-button>
+        Dodaj studenta do projektu
+      </button>
+    </div>
   </div>
-  <div id="right50">
+  <div class="right50">
     <h1>Dodawanie nowego zadania</h1>
     <div class="example-container">
       <p>Nazwa zadania</p>
@@ -89,30 +102,23 @@
       Usuń projekt
     </button>
   </div>
-  <div class="example-container" *ngIf="role==='ROLE_ADMIN'">
-    <mat-form-field appearance="fill">
-      <mat-label>Wybierz studenta z listy</mat-label>
-      <mat-select [(value)]="selected">
-        <mat-option *ngFor="let loc of studenci"
-                    value="{{loc.studentId}}">{{ loc.nazwisko }} {{ loc.imie }} </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <button (click)="dodajStudenta()" mat-raised-button>
-      Dodaj studenta do projektu
-    </button>
-  </div>
-  <div style="margin-top: 20px" class="example-container">
-    <button mat-raised-button>Dodaj plik</button>
-  </div>
-  <div class="example-container">
- 
-    <h1>Pliki:</h1>
-    <ul class="pliki">
-      <li *ngFor="let plik of pliki">
-        <span class="student"><a href="{{ plik.url }}">{{plik.name}}</a> </span>
-      </li>
-    </ul>
+
+
+
+  <div class="right50">
+    <div class="example-container">
+
+      <h1>Pliki projektu:</h1>
+      <div style="margin-top: 20px" class="example-container">
+        <button mat-raised-button>Dodaj plik</button>
+      </div>
+
+      <ul class="pliki">
+        <li *ngFor="let plik of pliki">
+          <span class="student"><a href="{{ plik.url }}">{{plik.name}}</a> </span>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </mat-card>
